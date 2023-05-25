@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ExpenseWiseProj</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="index">
+    <div class="headerBar">
+        <header>
+            <h1 class="title">ExpenseWise</h1>
+            <h2 class="topbar">Your Current Balance</h2>
+            <p>
+                <span class="currency">$</span>
+                <span class="balance"></span>
+            </p>
+        </header>
+    </div>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>            
+            <li><a href="index.html" class="active"><i class="fas fa-plus"></i> Add Transaction</a></li> 
+            <li><a href="#transactionSection"><i class="fas fa-list"></i> Transactions</a></li>           
+            <li><a href="report.html"><i class="fas fa-chart-pie"></i> Reports</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h3 class="secondTitle">Add a new transaction:</h3>
+        <div class="form">
+            <form id="expForm">
+                <div class="formLine left">
+                    <span for="type">Type:</span>
+                    <select id="type">
+                        <option value="chooseOne">Choose one...</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+                <div class="formLine right">
+                    <span for="name">Name:</span>
+                    <input type="text" id="name" placeholder="Enter name">
+                </div>
+                <div class="formLine right">
+                    <span for="amount">Amount:</span>
+                    <input type="text" id="amount" placeholder="Enter amount">
+                </div>
+                <div><button type="submit" class="sortButton">Add to transactions</button></div>
+                
+            </form>
+        </div>
+    </div>
+    
+    <div class="transactionSection" id="transactionSection">
+        <h3 class="secondTitle">Transactions:</h3>
+        <div class="sortContainer">
+            <label for="sortField">Sort by:</label>
+            <select id="sortField">
+                <option value="timestamp">Date</option>
+                <option value="name">Name</option>
+                <option value="amount">Amount</option>
+            </select>
+            <label for="sortOrder">Order:</label>
+            <select id="sortOrder">
+                <option value="desc">Descending</option>
+                <option value="asc">Ascending</option>
+            </select>            
+            <button id="sortButton" class="sortButton">Sort</button>            
+        </div>
+        <div class="searchContainer">
+            <input type="text" id="searchName" placeholder="Search by name...">
+          </div>
+          
+        <div class="content">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionTable"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

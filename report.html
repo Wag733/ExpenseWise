@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ExpenseWise - Reports</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    canvas {
+      max-width: 600px;
+      margin-top: 20px;
+    }
+
+    /* Navbar styles */
+    .navbar {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .navbar ul li {
+      flex: 1;
+    }
+
+    .navbar ul li a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+      background-color: #555;
+    }
+
+    .navbar ul li a.active {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="index.html"><i class="fas fa-plus"></i> Add Transaction</a></li>
+      <li><a href="index.html"><i class="fas fa-list"></i> Transactions</a></li>
+      <li><a href="#" class="active"><i class="fas fa-chart-pie"></i> Reports</a></li>
+    </ul>
+  </nav>
+  <h1>Transaction History</h1>
+  <canvas id="transactionChart"></canvas>
+
+  <script>
+    // Get transaction history from local storage
+    const transactionHistory = JSON.parse(localStorage.getItem('transactionHistory')) || [];
+
+    if (transactionHistory.length === 0) {
+      const canvas = document.getElementById('transactionChart');
+      const ctx = canvas.getContext('2d');
+      ctx.font = '20px Arial';
+      ctx.fillText('No transaction history available.', 50, 50);
+    } else {
+      // Extract labels and data for the chart
+      const labels = transactionHistory.map(transaction => transaction.name);
+      const amounts = transactionHistory.map(transaction => transaction.amount);
+
+      // Create chart
+      const ctx = document.getElementById('transactionChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line', // Change to line chart
+        data: {
+          labels: labels,
+          datasets: [{
+            label:
+            'Amount',
+data: amounts,
+backgroundColor: 'rgba(54, 162, 235, 0.6)',
+borderColor: 'rgba(54, 162, 235, 1)',
+borderWidth: 1
+}]
+},
+options: {
+scales: {
+y: {
+beginAtZero: true
+}
+}
+}
+});
+}
+</script>
+
+</body>
+</html>

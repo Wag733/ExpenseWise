@@ -1,0 +1,115 @@
+/* home.css */
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Header Styles */
+.headerBar {
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.headerBar h1 {
+    margin: 0;
+    color: #333;
+}
+
+.headerBar h2 {
+    margin-top: 5px;
+    color: #555;
+}
+
+/* Content Styles */
+.content {
+    margin-top: 20px;
+}
+
+.content h2 {
+    color: #333;
+}
+
+.content p {
+    line-height: 1.5;
+}
+
+.content ul {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.content ul li {
+    margin-bottom: 5px;
+}
+
+
+
+/* Background Images */
+
+body.home {
+    background-image: url("pexels-kindel-media-7054399.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* Other background styles for the home page */
+  }
+  
+  body.index {
+    background-image: url("pexels-picas-joe-11348119.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* Other background styles for the add transactions page */
+  }
+  
+.headerBar {
+    background-color: rgba(242, 242, 242, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .image-gallery {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
